@@ -1,0 +1,30 @@
+{
+  "name": "song.link Telegram Bot",
+  "description": "Telegram Chatbot that, given a song or album link, finds links to the same item on other platforms",
+  "repository": "https://github.com/rjmunhoz/songlink-telegram-bot",
+  "logo": "https://github.com/rjmunhoz/songlink-telegram-bot/blob/master/assets/logo.png",
+  "keywords": [
+    "node",
+    "telegram",
+    "code",
+    "chatbot",
+    "song",
+    "platform",
+    "songlink"
+  ],
+  "env": {
+    "TELEGRAM_TOKEN": {
+      "description": "Telegram Bot API token",
+      "required": true
+    },
+    "SERVER_EXTERNAL_HOST": {
+      "description": "Your Heroku app URL, whith HTTPs",
+      "value": "https://my-app.herokuapp.com",
+      "required": true
+    },
+    "SONGLINK_APIKEY": {
+      "description": "Your key to song.link API, if you have one",
+      "required": false
+    }
+  }
+}
