@@ -15,7 +15,8 @@ function getText (type: Type, name: string, title: string, artist: string) {
   const messageFormat = TEXT_FORMATS[type]
   return [
     format(messageFormat, name, title, artist),
-    'Click one of the buttons below to open it on your preferred platform :D'
+    'Click one of the buttons below to open it on your preferred platform :D\n\n',
+    'Powered by song.link'
   ].join('\n')
 }
 
