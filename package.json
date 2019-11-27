@@ -1,0 +1,37 @@
+{
+  "name": "songlink-telegram-bot",
+  "version": "1.0.0",
+  "description": "Telegram chatbot to interact with song.link's API",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "exit 0",
+    "build": "tsc",
+    "clean": "rm -rf dist tsconfig.tsbuildinfo",
+    "build:clean": "npm run clean && npm run build",
+    "start": "node dist/index.js",
+    "launch": "npm run build:clean && npm start"
+  },
+  "keywords": [
+    "telegram",
+    "chatbot",
+    "song",
+    "link"
+  ],
+  "author": "Rogério Munhoz <hello@rjmunhoz.me>",
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "@types/debug": "^4.1.5",
+    "@types/uuid": "^3.4.6",
+    "typescript": "^3.7.2"
+  },
+  "dependencies": {
+    "@sentry/integrations": "^5.8.0",
+    "@sentry/node": "^5.9.0",
+    "debug": "^4.1.1",
+    "ngrok": "^3.2.5",
+    "songlink-api": "^1.0.0",
+    "sugar-env": "^1.5.7",
+    "telegraf": "^3.33.3",
+    "uuid": "^3.3.3"
+  }
+}
