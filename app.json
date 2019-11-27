@@ -2,7 +2,7 @@
   "name": "song.link Telegram Bot",
   "description": "Telegram Chatbot that, given a song or album link, finds links to the same item on other platforms",
   "repository": "https://github.com/rjmunhoz/songlink-telegram-bot",
-  "logo": "https://github.com/rjmunhoz/songlink-telegram-bot/blob/master/assets/logo.png",
+  "logo": "https://raw.githubusercontent.com/rjmunhoz/songlink-telegram-bot/master/assets/logo.png",
   "keywords": [
     "node",
     "telegram",
