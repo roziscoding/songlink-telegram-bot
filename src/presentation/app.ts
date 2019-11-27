@@ -63,7 +63,11 @@ export async function factory (config: IAppConfig) {
   
   bot.start(switchToInline)
   bot.help(switchToInline)
-
+  
+  // Send repository link
+  bot.command('repo', (ctx) => ctx.replyWithMarkdown('You can see my source code [here](https://github.com/rjmunhoz/songlink-telegram-bot)'))
+  
+  // Hints user about inline mode
   bot.hears(/https?:\/\/.*/, switchToInline)
 
   bot.hears(/.*/, ctx => {
@@ -77,8 +81,6 @@ export async function factory (config: IAppConfig) {
   })
 
   bot.on('chosen_inline_result', handlers.chosenResult.factory(getClient({ apiKey: config.songLink.apiKey })))
-
-  bot.command('repo', (ctx) => ctx.replyWithMarkdown('You can see my source code [here](https://github.com/rjmunhoz/songlink-telegram-bot)'))
 
   return bot
 }
