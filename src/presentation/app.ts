@@ -14,7 +14,7 @@ declare module 'telegraf/typings' {
 }
 
 function switchToInline (ctx: ContextMessageUpdate) {
-  const value = ctx.message?.text === '/start'
+  const value = ctx.message?.text === '/start' || ctx.message?.text === '/help'
     ? ''
     : ctx.message?.text?.replace(/\/start ?/ig, '')
 
@@ -60,10 +60,16 @@ export async function factory (config: IAppConfig) {
 
   // Smiles to the user
   bot.action('ok', ctx => ctx.answerCbQuery('OK, hold on :D'))
-
+  
   bot.start(switchToInline)
+  bot.help(switchToInline)
 
-  bot.hears(/.*/, switchToInline)
+  bot.hears(/https?:\/\/.*/, switchToInline)
+
+  bot.hears(/.*/, ctx => {
+    if (ctx.message?.text) ctx.message.text = '/start'
+    return switchToInline(ctx)
+  })
 
   bot.on('inline_query', (ctx) => {
     log('Handling inline query from %s', ctx.from?.first_name)
@@ -71,6 +77,8 @@ export async function factory (config: IAppConfig) {
   })
 
   bot.on('chosen_inline_result', handlers.chosenResult.factory(getClient({ apiKey: config.songLink.apiKey })))
+
+  bot.command('repo', (ctx) => ctx.replyWithMarkdown('You can see my source code [here](https://github.com/rjmunhoz/songlink-telegram-bot)'))
 
   return bot
 }
